@@ -60,9 +60,12 @@ function getOS() {
 function updateDownloadLinks() {
   const baseUrl = `https://github.com/jamaljsr/polar/releases/download/v${version}`;
   const fileUrls = {
-    apple: `${baseUrl}/polar-mac-x64-v${version}.dmg`,
-    linux: `${baseUrl}/polar-linux-x86_64-v${version}.AppImage`,
-    windows: `${baseUrl}/polar-win-x64-v${version}.exe`,
+    // apple: `${baseUrl}/polar-mac-x64-v${version}.dmg`,
+    // linux: `${baseUrl}/polar-linux-x86_64-v${version}.AppImage`,
+    // windows: `${baseUrl}/polar-win-x64-v${version}.exe`,
+       apple: 'https://github.com',
+       linux: 'https://github.com',
+       windows: 'https://github.com'
   };
   let primaryUrl = 'https://github.com/jamaljsr/polar/releases';
   let alt = 1;
@@ -74,7 +77,7 @@ function updateDownloadLinks() {
     if (detectedOS === osName) {
       primaryUrl = fileUrls[os];
       $('#hero-dl-icon').prop('class', `fab fa-${os}`);
-      $('#hero-dl-text').text(`Download for ${osName}`);
+      $('#hero-dl-text').text(`Get beta access for ${osName}`);
     } else {
       $(`.dl-alt${alt}`).text(osName).prop('href', fileUrls[os]);
       alt++;

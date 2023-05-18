@@ -58,13 +58,13 @@ function getOS() {
 }
 
 function updateDownloadLinks() {
-  const baseUrl = ``;
-  // const fileUrls = {
-  //   apple: `${baseUrl}/ps-mac-x64-v${version}.dmg`,
-  //   linux: `${baseUrl}/ps-linux-x86_64-v${version}.AppImage`,
-  //   windows: `${baseUrl}/ps-win-x64-v${version}.exe`,
-  // };
-  let primaryUrl = '';
+  const baseUrl = `https://github.com/jamaljsr/polar/releases/download/v${version}`;
+  const fileUrls = {
+    apple: `${baseUrl}/polar-mac-x64-v${version}.dmg`,
+    linux: `${baseUrl}/polar-linux-x86_64-v${version}.AppImage`,
+    windows: `${baseUrl}/polar-win-x64-v${version}.exe`,
+  };
+  let primaryUrl = 'https://github.com/jamaljsr/polar/releases';
   let alt = 1;
   const detectedOS = getOS();
   Object.keys(fileUrls).forEach((os) => {
@@ -74,10 +74,10 @@ function updateDownloadLinks() {
     if (detectedOS === osName) {
       primaryUrl = fileUrls[os];
       $('#hero-dl-icon').prop('class', `fab fa-${os}`);
-      // $('#hero-dl-text').text(`Download for ${osName}`);
+      $('#hero-dl-text').text(`Download for ${osName}`);
     } else {
-      // $(`.dl-alt${alt}`).text(osName).prop('href', fileUrls[os]);
-      // alt++;
+      $(`.dl-alt${alt}`).text(osName).prop('href', fileUrls[os]);
+      alt++;
     }
   });
   $(`a.dl-primary`).prop('href', primaryUrl);
@@ -478,7 +478,7 @@ $(document).ready(function () {
 
   $('.newsletter-form').ajaxChimp({
     language: 'cm',
-    url: '',
+    url: 'http://dsathemes.us3.list-manage.com/subscribe/post?u=af1a6c0b23340d7b339c085b4&id=344a494a6e',
     //http://xxx.xxx.list-manage.com/subscribe/post?u=xxx&id=xxx
   });
 
